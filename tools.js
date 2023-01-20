@@ -1,6 +1,8 @@
+import fs from 'fs';
+
 /**
  * lookupObjectInSkills(skills, skillIdCode)
- * 
+ *
  * returns the skill object that corresponds to the skillIdCode sent
  */
 export const lookupObjectInSkills = (skills, skillIdCode) => {
@@ -9,14 +11,24 @@ export const lookupObjectInSkills = (skills, skillIdCode) => {
 			return skill;
 		}
 	}
-}
+};
 
 /**
  * getSkills()
- * 
+ *
  * returns all skills as a JSON array of skill objects
  */
 export const getSkills = () => {
+	const skills = fs.readFileSync('data/skills.json', {
+		encoding: 'utf8',
+		flag: 'r'
+	});
+	return JSON.parse(skills);
+}
+
+
+export const getSkills2 = () => {
+	// return skills;
 	return [
 		{
 			idCode: 'angular',
@@ -1229,7 +1241,7 @@ export const getSkills = () => {
 
 /**
  * getJobs()
- * 
+ *
  * returns all jobs as a JSON array of job objects
  */
 export const getJobs = () => {
