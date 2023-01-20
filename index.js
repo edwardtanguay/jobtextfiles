@@ -8,4 +8,6 @@ console.log(`There are ${jobs.length} jobs:\n`);
 for (let i = 0; i < jobs.length; i++) {
 	const job = jobs[i];
 	console.log(job.title);
+	console.log(job.url);
+	console.log('')
 }
