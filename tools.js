@@ -1,5 +1,14 @@
+/**
+ * lookupObjectInSkills(skills, skillIdCode)
+ * 
+ * returns the skill object that corresponds to the skillIdCode sent
+ */
 export const lookupObjectInSkills = (skills, skillIdCode) => {
-	return skills[3];
+	for (const skill of skills) {
+		if (skillIdCode === skill.idCode) {
+			return skill;
+		}
+	}
 }
 
 /**
