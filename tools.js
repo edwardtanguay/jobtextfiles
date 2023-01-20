@@ -2,7 +2,7 @@ import fs from 'fs';
 
 /**
  * returns the skill object that corresponds to the skillIdCode sent
- * 
+ *
  * const skills = lookupObjectInSkills(skills, 'react');
  */
 export const lookupObjectInSkills = (skills, skillIdCode) => {
@@ -15,7 +15,7 @@ export const lookupObjectInSkills = (skills, skillIdCode) => {
 
 /**
  * returns all skills as a JSON array of skill objects
- * 
+ *
  * const skills = getSkills();
  */
 export const getSkills = () => {
@@ -24,11 +24,11 @@ export const getSkills = () => {
 		flag: 'r'
 	});
 	return JSON.parse(skills);
-}
+};
 
 /**
  * returns all jobs as a JSON array of job objects
- * 
+ *
  * const jobs = getJobs();
  */
 export const getJobs = () => {
@@ -37,22 +37,30 @@ export const getJobs = () => {
 		flag: 'r'
 	});
 	return JSON.parse(jobs);
-}
+};
 
 /**
  * creates a file, with optional date stamp
- * 
+ *
  * writeFile('output/report.txt', reportText, {withDateStamp: true});
- * 
+ *
  * creates file: report-2023-01-20.txt
  */
 export const writeFile = (pathAndFileName, content, config = {}) => {
 
-	const dateStamp = new Intl.DateTimeFormat("fr-CA", {year: "numeric", month: "2-digit", day: "2-digit"}).format(Date.now())
+	let newPathAndFileName = pathAndFileName;
 
-	// we assume that the file has only one period before the extention
-	const parts = pathAndFileName.split('.');
-	const newPathAndFileName = `${parts[0]}-${dateStamp}.${parts[1]}`;
+	if (config.withDateStamp) {
+		const dateStamp = new Intl.DateTimeFormat('fr-CA', {
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit'
+		}).format(Date.now());
+
+		// we assume that the file has only one period before the extention
+		const parts = pathAndFileName.split('.');
+		newPathAndFileName = `${parts[0]}-${dateStamp}.${parts[1]}`;
+	}
 
 	fs.writeFileSync(newPathAndFileName, content);
-}
+};
