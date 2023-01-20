@@ -48,7 +48,7 @@ export const getJobs = () => {
  */
 export const writeFile = (pathAndFileName, content, config = {}) => {
 
-	const dateStamp = 'nnn';
+	const dateStamp = new Intl.DateTimeFormat("fr-CA", {year: "numeric", month: "2-digit", day: "2-digit"}).format(Date.now())
 
 	// we assume that the file has only one period before the extention
 	const parts = pathAndFileName.split('.');
