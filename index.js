@@ -13,6 +13,7 @@ for(const job of jobs) {
 	for (let skillIdCode of skillIdCodes) {
 		skillIdCode = skillIdCode.trim();
 		const skill = tools.lookupObjectInSkills(skills, skillIdCode);
+		// const skill = skills.find(m => m.idCode === skillIdCode); // higher-order-function solution
 		console.log(`- ${skill.name} - ${skill.description}`);
 	}
 	console.log('')
