@@ -47,5 +47,12 @@ export const getJobs = () => {
  * creates file: report-2023-01-20.txt
  */
 export const writeFile = (pathAndFileName, content, config = {}) => {
-	fs.writeFileSync(pathAndFileName, content);
+
+	const dateStamp = 'nnn';
+
+	// we assume that the file has only one period before the extention
+	const parts = pathAndFileName.split('.');
+	const newPathAndFileName = `${parts[0]}-${dateStamp}.${parts[1]}`;
+
+	fs.writeFileSync(newPathAndFileName, content);
 }

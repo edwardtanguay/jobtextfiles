@@ -25,4 +25,4 @@ const createReport = () => {
 };
 
 const reportText = createReport();
-tools.writeFile('output/report.txt', reportText);
+tools.writeFile('output/report.txt', reportText, { withDateStamp: true });
