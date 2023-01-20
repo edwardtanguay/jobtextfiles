@@ -1,7 +1,0 @@
-- x list out skills for every job in lowercase
-- x get skills as array
-- x instead of idCode, list title of skill
-	- x for every job, lookup skill
-	- x output skill name and description instead of idCode
-
-- in tools, read skills from file
