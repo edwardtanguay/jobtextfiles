@@ -24,5 +24,5 @@ const createReport = () => {
 	return r;
 };
 
-const report = createReport();
-console.log(report);
+const reportText = createReport();
+tools.writeFile('output/report.txt', reportText);

@@ -1,9 +1,9 @@
 import fs from 'fs';
 
 /**
- * lookupObjectInSkills(skills, skillIdCode)
- *
  * returns the skill object that corresponds to the skillIdCode sent
+ * 
+ * const skills = lookupObjectInSkills(skills, 'react');
  */
 export const lookupObjectInSkills = (skills, skillIdCode) => {
 	for (const skill of skills) {
@@ -14,9 +14,9 @@ export const lookupObjectInSkills = (skills, skillIdCode) => {
 };
 
 /**
- * getSkills()
- *
  * returns all skills as a JSON array of skill objects
+ * 
+ * const skills = getSkills();
  */
 export const getSkills = () => {
 	const skills = fs.readFileSync('data/skills.json', {
@@ -27,9 +27,9 @@ export const getSkills = () => {
 }
 
 /**
- * getJobs()
- *
  * returns all jobs as a JSON array of job objects
+ * 
+ * const jobs = getJobs();
  */
 export const getJobs = () => {
 	const jobs = fs.readFileSync('data/jobs.json', {
@@ -37,4 +37,15 @@ export const getJobs = () => {
 		flag: 'r'
 	});
 	return JSON.parse(jobs);
+}
+
+/**
+ * creates a file, with optional date stamp
+ * 
+ * writeFile('output/report.txt', reportText, {withDateStamp: true});
+ * 
+ * creates file: report-2023-01-20.txt
+ */
+export const writeFile = (pathAndFileName, content, config = {}) => {
+	fs.writeFileSync(pathAndFileName, content);
 }
